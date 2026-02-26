@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import ieaLogo from "@/assets/iea logo.png";
+import ieaLogo from "@/assets/iea-logo.png";
 
 const navLinks = [
   "Home", "About", "Passes", "Events", "Workshops", "Food & Stay", "Sponsors", "About MIT", "Contact"
