@@ -3,9 +3,9 @@ import TiltCard from "./TiltCard";
 import MagneticButton from "./MagneticButton";
 
 const passes = [
-  { name: "Gold Pass", price: "₹600", desc: "Unlock access to 5 events with premium perks!", tier: "gold" },
-  { name: "Silver Pass", price: "₹500", desc: "Join 4 events with exclusive benefits!", tier: "silver" },
-  { name: "Bronze Pass", price: "₹400", desc: "Experience 3 events with essential access!", tier: "bronze" },
+  { name: "Diamond Pass", price: "₹649", desc: "Unlock access to 4 events with premium perks!", tier: "Diamond" },
+  { name: "gold Pass", price: "₹499", desc: "Join 3 events with exclusive benefits!", tier: "gold" },
+  { name: "silver Pass", price: "₹349", desc: "Experience 2 events with essential access!", tier: "silver" },
 ];
 
 const tierStyles: Record<string, { gradient: string; border: string; icon: string }> = {
