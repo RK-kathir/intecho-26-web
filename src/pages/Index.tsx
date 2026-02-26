@@ -11,9 +11,9 @@ import AboutMIT from "@/components/AboutMIT";
 import ContactSection from "@/components/ContactSection";
 import ScrollToTop from "@/components/ScrollToTop";
 import SectionDivider from "@/components/SectionDivider";
-import CursorGlow from "@/components/CursorGlow";
-
-const ParticlesBg = lazy(() => import("@/components/ParticlesBg"));
+// We are temporarily disabling these two imports to find the bug!
+// import CursorGlow from "@/components/CursorGlow";
+// const ParticlesBg = lazy(() => import("@/components/ParticlesBg"));
 
 const techEvents = [
   { image: "https://placehold.co/100/1a1a2e/ff2d2d?text=PC", title: "Prompt Clash", description: "Master the art of AI prompting to generate the best results.", link: "https://docs.google.com/forms/d/e/1FAIpQLScIrj3nBV9k6puhdWuBRbyx1gdRcxDcKS9kqJ4ofEN92B3ymQ/viewform?usp=publish-editor" },
@@ -90,10 +90,11 @@ const Index = () => {
         )}
       </AnimatePresence>
 
-      <CursorGlow />
-      <Suspense fallback={null}>
+      {/* WE COMMENTED THESE OUT TEMPORARILY */}
+      {/* <CursorGlow /> */}
+      {/* <Suspense fallback={null}>
         <ParticlesBg />
-      </Suspense>
+      </Suspense> */}
 
       <Header />
 
@@ -116,39 +117,4 @@ const Index = () => {
       <CarouselSection
         id="nontech-events"
         title="Non-Tech Events"
-        subtitle="Blend fun and tech in exciting challenges"
-        items={nonTechEvents}
-        showRegister
-      />
-      <SectionDivider />
-
-      <CarouselSection
-        id="workshops"
-        title="Workshops"
-        subtitle="Learn from industry experts"
-        items={workshops}
-        showRegister
-      />
-      <SectionDivider />
-      <FoodSection />
-      <SectionDivider />
-      <SponsorsSection />
-      <SectionDivider />
-      <AboutMIT />
-      <SectionDivider />
-      <ContactSection />
-      <ScrollToTop />
-
-      <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-[50] pointer-events-none">
-        <div className="bg-black/40 backdrop-blur-md border border-white/10 px-6 py-2 rounded-full shadow-[0_0_15px_rgba(255,45,45,0.2)]">
-          <p className="text-[10px] md:text-xs font-syne tracking-[0.2em] text-white/70 uppercase">
-            Built with <span className="text-[#ff2d2d] font-bold drop-shadow-[0_0_5px_rgba(255,45,45,0.8)]">Kathirvel R</span>
-          </p>
-        </div>
-      </div>
-
-    </div>
-  );
-};
-
-export default Index;
+        subtitle="
