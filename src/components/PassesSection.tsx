@@ -9,9 +9,9 @@ const passes = [
 ];
 
 const tierStyles: Record<string, { gradient: string; border: string; icon: string }> = {
-  gold: { gradient: "from-yellow-500/15 via-yellow-600/5 to-transparent", border: "border-yellow-500/20", icon: "👑" },
-  silver: { gradient: "from-gray-300/15 via-gray-500/5 to-transparent", border: "border-gray-400/20", icon: "⚡" },
-  bronze: { gradient: "from-orange-600/15 via-orange-700/5 to-transparent", border: "border-orange-500/20", icon: "🔥" },
+  diamond: { gradient: "from-yellow-500/15 via-yellow-600/5 to-transparent", border: "border-yellow-500/20", icon: "👑" },
+  gold: { gradient: "from-gray-300/15 via-gray-500/5 to-transparent", border: "border-gray-400/20", icon: "⚡" },
+  silver: { gradient: "from-orange-600/15 via-orange-700/5 to-transparent", border: "border-orange-500/20", icon: "🔥" },
 };
 
 const PassesSection = () => {
