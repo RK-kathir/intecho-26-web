@@ -1,14 +1,13 @@
-import { useState, useRef } from "react";
+import { useRef } from "react";
 import { motion } from "framer-motion";
 import TiltCard from "./TiltCard";
-import EventModal from "./EventModal";
 import MagneticButton from "./MagneticButton";
 
 export interface CarouselItem {
   image: string;
   title: string;
   description: string;
-  link?: string;
+  link?: string; // Added link property for the register button
 }
 
 interface CarouselSectionProps {
@@ -21,7 +20,6 @@ interface CarouselSectionProps {
 
 const CarouselSection = ({ id, title, subtitle, items, showRegister = false }: CarouselSectionProps) => {
   const scrollRef = useRef<HTMLDivElement>(null);
-  const [modal, setModal] = useState<CarouselItem | null>(null);
 
   return (
     <section id={id} className="relative z-10 py-20 px-4 md:px-8 max-w-7xl mx-auto">
@@ -51,8 +49,7 @@ const CarouselSection = ({ id, title, subtitle, items, showRegister = false }: C
           >
             <TiltCard className="h-full">
               <motion.div
-                className="glass rounded-xl p-6 flex flex-col items-center gap-4 h-full cursor-pointer transition-all duration-500 border border-transparent hover:border-primary/30"
-                onClick={() => setModal(item)}
+                className="glass rounded-xl p-6 flex flex-col items-center gap-4 h-full transition-all duration-500 border border-transparent hover:border-primary/30"
                 whileHover={{
                   boxShadow: "0 0 30px rgba(255,45,45,0.2), 0 0 60px rgba(255,45,45,0.05)",
                   y: -5,
@@ -70,4 +67,23 @@ const CarouselSection = ({ id, title, subtitle, items, showRegister = false }: C
                 {showRegister && (
                   <MagneticButton
                     variant="glass"
-                    className
+                    className="mt-auto text-xs"
+                    onClick={() => {
+                      if (item.link) {
+                        window.open(item.link, "_blank", "noopener,noreferrer");
+                      }
+                    }}
+                  >
+                    Register
+                  </MagneticButton>
+                )}
+              </motion.div>
+            </TiltCard>
+          </motion.div>
+        ))}
+      </div>
+    </section>
+  );
+};
+
+export default CarouselSection;
