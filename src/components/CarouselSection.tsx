@@ -8,7 +8,7 @@ export interface CarouselItem {
   image: string;
   title: string;
   description: string;
-  link?: string; // We added the link property here
+  link?: string;
 }
 
 interface CarouselSectionProps {
@@ -70,34 +70,4 @@ const CarouselSection = ({ id, title, subtitle, items, showRegister = false }: C
                 {showRegister && (
                   <MagneticButton
                     variant="glass"
-                    className="mt-auto text-xs z-20"
-                    onClick={(e) => {
-                      if (item.link && item.link !== "#") {
-                        e.stopPropagation(); // Prevents the card modal from opening
-                        window.open(item.link, "_blank", "noopener,noreferrer");
-                      } else {
-                        setModal(item);
-                      }
-                    }}
-                  >
-                    Register
-                  </MagneticButton>
-                )}
-              </motion.div>
-            </TiltCard>
-          </motion.div>
-        ))}
-      </div>
-
-      <EventModal
-        open={!!modal}
-        onClose={() => setModal(null)}
-        title={modal?.title || ""}
-        description={modal?.description || ""}
-        image={modal?.image || ""}
-      />
-    </section>
-  );
-};
-
-export default CarouselSection;
+                    className
