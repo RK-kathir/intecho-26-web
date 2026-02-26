@@ -2,6 +2,7 @@ import { useState, useRef } from "react";
 import { motion } from "framer-motion";
 import TiltCard from "./TiltCard";
 import EventModal from "./EventModal";
+import MagneticButton from "./MagneticButton";
 
 export interface CarouselItem {
   image: string;
@@ -35,35 +36,46 @@ const CarouselSection = ({ id, title, subtitle, items, showRegister = false }: C
 
       <div
         ref={scrollRef}
-        className="flex gap-6 mt-12 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide"
+        className="flex gap-6 mt-12 overflow-x-auto pb-4 snap-x snap-mandatory"
         style={{ scrollbarWidth: "none" }}
       >
         {items.map((item, i) => (
           <motion.div
             key={item.title}
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, x: 60, rotateY: -15 }}
+            whileInView={{ opacity: 1, x: 0, rotateY: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: i * 0.1 }}
+            transition={{ duration: 0.6, delay: i * 0.12, type: "spring" }}
             className="snap-start shrink-0 w-72"
           >
             <TiltCard className="h-full">
-              <div
-                className="glass rounded-xl p-6 flex flex-col items-center gap-4 h-full cursor-pointer hover:glow-red transition-shadow"
+              <motion.div
+                className="glass rounded-xl p-6 flex flex-col items-center gap-4 h-full cursor-pointer transition-all duration-500 border border-transparent hover:border-primary/30"
                 onClick={() => setModal(item)}
+                whileHover={{
+                  boxShadow: "0 0 30px rgba(255,45,45,0.2), 0 0 60px rgba(255,45,45,0.05)",
+                  y: -5,
+                }}
               >
-                <img src={item.image} alt={item.title} className="w-16 h-16 rounded-lg object-cover" />
+                <motion.img
+                  src={item.image}
+                  alt={item.title}
+                  className="w-16 h-16 rounded-lg object-cover"
+                  whileHover={{ rotate: [0, -5, 5, 0], scale: 1.1 }}
+                  transition={{ duration: 0.4 }}
+                />
                 <h3 className="font-heading text-lg font-bold text-foreground text-center">{item.title}</h3>
                 <p className="font-body text-muted-foreground text-center text-xs leading-relaxed">{item.description}</p>
                 {showRegister && (
-                  <button
-                    className="btn-glass mt-auto text-xs"
-                    onClick={(e) => { e.stopPropagation(); setModal(item); }}
+                  <MagneticButton
+                    variant="glass"
+                    className="mt-auto text-xs"
+                    onClick={() => setModal(item)}
                   >
                     Register
-                  </button>
+                  </MagneticButton>
                 )}
-              </div>
+              </motion.div>
             </TiltCard>
           </motion.div>
         ))}

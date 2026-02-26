@@ -10,6 +10,7 @@ import AboutMIT from "@/components/AboutMIT";
 import ContactSection from "@/components/ContactSection";
 import ScrollToTop from "@/components/ScrollToTop";
 import SectionDivider from "@/components/SectionDivider";
+import CursorGlow from "@/components/CursorGlow";
 
 const ParticlesBg = lazy(() => import("@/components/ParticlesBg"));
 
@@ -35,6 +36,7 @@ const workshops = [
 const Index = () => {
   return (
     <div className="relative min-h-screen bg-background overflow-x-hidden">
+      <CursorGlow />
       <Suspense fallback={null}>
         <ParticlesBg />
       </Suspense>
@@ -43,10 +45,8 @@ const Index = () => {
 
       <HeroSection />
       <SectionDivider />
-
       <AboutSection />
       <SectionDivider />
-
       <PassesSection />
       <SectionDivider />
 
@@ -76,18 +76,13 @@ const Index = () => {
         showRegister
       />
       <SectionDivider />
-
       <FoodSection />
       <SectionDivider />
-
       <SponsorsSection />
       <SectionDivider />
-
       <AboutMIT />
       <SectionDivider />
-
       <ContactSection />
-
       <ScrollToTop />
     </div>
   );

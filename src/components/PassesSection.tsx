@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import TiltCard from "./TiltCard";
+import MagneticButton from "./MagneticButton";
 
 const passes = [
   { name: "Gold Pass", price: "₹600", desc: "Unlock access to 5 events with premium perks!", tier: "gold" },
@@ -7,10 +8,10 @@ const passes = [
   { name: "Bronze Pass", price: "₹400", desc: "Experience 3 events with essential access!", tier: "bronze" },
 ];
 
-const tierGradients: Record<string, string> = {
-  gold: "from-yellow-600/20 to-yellow-900/5",
-  silver: "from-gray-400/20 to-gray-700/5",
-  bronze: "from-orange-700/20 to-orange-900/5",
+const tierStyles: Record<string, { gradient: string; border: string; icon: string }> = {
+  gold: { gradient: "from-yellow-500/15 via-yellow-600/5 to-transparent", border: "border-yellow-500/20", icon: "👑" },
+  silver: { gradient: "from-gray-300/15 via-gray-500/5 to-transparent", border: "border-gray-400/20", icon: "⚡" },
+  bronze: { gradient: "from-orange-600/15 via-orange-700/5 to-transparent", border: "border-orange-500/20", icon: "🔥" },
 };
 
 const PassesSection = () => {
@@ -26,21 +27,37 @@ const PassesSection = () => {
         <p className="section-subtitle">Choose your pass and join the symposium</p>
       </motion.div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
         {passes.map((pass, i) => (
           <motion.div
             key={pass.name}
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: 60, rotateX: 15 }}
+            whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: i * 0.15 }}
+            transition={{ duration: 0.7, delay: i * 0.2, type: "spring" }}
           >
             <TiltCard className="h-full">
-              <div className={`glass rounded-xl p-8 flex flex-col items-center gap-4 h-full bg-gradient-to-b ${tierGradients[pass.tier]}`}>
+              <div className={`glass rounded-2xl p-8 flex flex-col items-center gap-5 h-full bg-gradient-to-b ${tierStyles[pass.tier].gradient} ${tierStyles[pass.tier].border} border hover:glow-red-strong transition-all duration-500`}>
+                <motion.span
+                  className="text-4xl"
+                  animate={{ rotateY: [0, 360] }}
+                  transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
+                  style={{ display: "inline-block" }}
+                >
+                  {tierStyles[pass.tier].icon}
+                </motion.span>
                 <h3 className="font-heading text-2xl font-bold text-foreground">{pass.name}</h3>
-                <span className="font-heading text-4xl font-extrabold text-primary text-glow-red">{pass.price}</span>
+                <motion.span
+                  className="font-heading text-5xl font-extrabold text-primary text-glow-red"
+                  whileHover={{ scale: 1.15 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                >
+                  {pass.price}
+                </motion.span>
                 <p className="font-body text-muted-foreground text-center text-sm">{pass.desc}</p>
-                <button className="btn-glass mt-auto">Get Pass</button>
+                <MagneticButton variant="glass" className="mt-auto">
+                  Get Pass
+                </MagneticButton>
               </div>
             </TiltCard>
           </motion.div>
