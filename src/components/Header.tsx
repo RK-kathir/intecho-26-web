@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
 import ieaLogo from "@/assets/iea-logo.png";
 
 const navLinks = [
@@ -45,14 +44,28 @@ const Header = () => {
           ))}
         </nav>
 
-        {/* Mobile toggle */}
-        <button
+        {/* 3D Animated Mobile toggle */}
+        <motion.button
           onClick={() => setOpen(!open)}
-          className="lg:hidden text-foreground"
+          className="lg:hidden relative z-[60] w-6 h-5 flex flex-col justify-between cursor-pointer focus:outline-none"
           aria-label="Toggle menu"
         >
-          {open ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-        </button>
+          <motion.span
+            animate={{ rotate: open ? 45 : 0, y: open ? 9 : 0, rotateX: open ? 180 : 0 }}
+            transition={{ duration: 0.4, type: "spring", stiffness: 200 }}
+            className="w-full h-[2px] bg-foreground origin-center shadow-[0_0_5px_rgba(255,255,255,0.5)]"
+          />
+          <motion.span
+            animate={{ opacity: open ? 0 : 1, x: open ? -20 : 0 }}
+            transition={{ duration: 0.3 }}
+            className="w-full h-[2px] bg-foreground shadow-[0_0_5px_rgba(255,255,255,0.5)]"
+          />
+          <motion.span
+            animate={{ rotate: open ? -45 : 0, y: open ? -9 : 0, rotateX: open ? -180 : 0 }}
+            transition={{ duration: 0.4, type: "spring", stiffness: 200 }}
+            className="w-full h-[2px] bg-foreground origin-center shadow-[0_0_5px_rgba(255,255,255,0.5)]"
+          />
+        </motion.button>
       </div>
 
       {/* Mobile menu */}
@@ -63,7 +76,7 @@ const Header = () => {
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ type: "spring", damping: 25, stiffness: 200 }}
-            className="fixed top-16 right-0 bottom-0 w-72 glass-strong flex flex-col gap-4 p-8 lg:hidden"
+            className="fixed top-16 right-0 bottom-0 w-72 glass-strong flex flex-col gap-4 p-8 lg:hidden z-50 shadow-[-10px_0_30px_rgba(0,0,0,0.5)]"
           >
             {navLinks.map((link) => (
               <button
