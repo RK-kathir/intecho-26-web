@@ -126,6 +126,11 @@
   50% { transform: translateY(-10px); }
 }
 
+@keyframes ripple-burst {
+  0% { width: 0; height: 0; opacity: 1; }
+  100% { width: 300px; height: 300px; opacity: 0; }
+}
+
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
