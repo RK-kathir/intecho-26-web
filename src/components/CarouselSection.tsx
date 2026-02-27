@@ -21,12 +21,11 @@ const CarouselSection = ({ id, title, items, showRegister = false }) => {
         <h2 className="section-title">{title}</h2>
       </div>
 
-      {/* Navigation arrows (Desktop only) */}
       <div className="hidden md:flex absolute top-1/2 left-0 right-0 justify-between px-4 z-30 pointer-events-none">
-        <button onClick={() => scroll("left")} className="p-2 bg-[#111] border border-white/10 rounded-full pointer-events-auto hover:bg-primary/50 transition-colors">
+        <button onClick={() => scroll("left")} className="p-2 bg-[#111] border border-white/10 rounded-full pointer-events-auto hover:bg-[#222] transition-colors">
           <ChevronLeft className="w-6 h-6 text-white" />
         </button>
-        <button onClick={() => scroll("right")} className="p-2 bg-[#111] border border-white/10 rounded-full pointer-events-auto hover:bg-primary/50 transition-colors">
+        <button onClick={() => scroll("right")} className="p-2 bg-[#111] border border-white/10 rounded-full pointer-events-auto hover:bg-[#222] transition-colors">
           <ChevronRight className="w-6 h-6 text-white" />
         </button>
       </div>
@@ -38,12 +37,8 @@ const CarouselSection = ({ id, title, items, showRegister = false }) => {
           style={{ scrollbarWidth: "none", WebkitOverflowScrolling: "touch" }}
         >
           {items.map((item) => (
-            // standard div - NO framer motion, NO TiltCard 3D math
-            <div 
-              key={item.title} 
-              className="snap-center shrink-0 w-[260px] md:w-72"
-            >
-              <div className="rounded-xl p-5 flex flex-col items-center gap-4 h-full border border-white/10 bg-[#111] backdrop-blur-none shadow-lg">
+            <div key={item.title} className="snap-center shrink-0 w-[260px] md:w-72">
+              <div className="rounded-xl p-5 flex flex-col items-center gap-4 h-full border border-white/10 bg-[#111] shadow-lg">
                 <img 
                   src={item.image} 
                   alt={item.title} 
@@ -55,7 +50,7 @@ const CarouselSection = ({ id, title, items, showRegister = false }) => {
                 
                 {showRegister && item.link && (
                   <a href={item.link} target="_blank" rel="noopener noreferrer" className="mt-auto block w-full z-20">
-                    <MagneticButton variant="glass" className="w-full text-xs py-2 bg-black/50">
+                    <MagneticButton variant="solid" className="w-full text-xs py-2 bg-[#222] text-white">
                       Register
                     </MagneticButton>
                   </a>
