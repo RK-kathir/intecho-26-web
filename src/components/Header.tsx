@@ -10,7 +10,7 @@ import ieaLogo from "@/assets/iea-logo.png";
 
 const navLinks = [
 
-  "Home", "About", "Passes", "Events", "Workshops", "Food & Stay", "Sponsors", "About MIT", "Contact"
+  "Home", "About", "Passes", "Events", "Workshops", "Sponsors", "About MIT", "Contact"
 
 ];
 
@@ -37,8 +37,6 @@ const idMap: Record<string, string> = {
   "Events": "tech-events",
 
   "Workshops": "workshops",
-
-  "Food & Stay": "food",
 
   "Sponsors": "sponsors",
 
