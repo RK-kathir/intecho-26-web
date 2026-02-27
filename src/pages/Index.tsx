@@ -13,7 +13,6 @@ import SectionDivider from "@/components/SectionDivider";
 
 // @ts-ignore
 import Hyperspeed from "@/components/Hyperspeed";
-// Import our new RotatingText for the intro!
 import RotatingText from "@/components/RotatingText";
 
 const hyperspeedOptions = {
@@ -105,8 +104,8 @@ const Index = () => {
     checkDevice();
     window.addEventListener("resize", checkDevice);
 
-    // INCREASED TIMEOUT to 3.5 seconds so the words have time to rotate!
-    const timer = setTimeout(() => setShowIntro(false), 3500); 
+    // INCREASED TIMEOUT to 5 seconds so it matches our slower, smoother text animation
+    const timer = setTimeout(() => setShowIntro(false), 5000); 
     return () => {
       clearTimeout(timer);
       window.removeEventListener("resize", checkDevice);
@@ -129,22 +128,22 @@ const Index = () => {
       <AnimatePresence>
         {showIntro && (
           <motion.div 
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.5 }}
+            exit={{ opacity: 0, transition: { duration: 0.8, ease: "easeInOut" } }}
             className="fixed inset-0 z-[999] bg-black flex items-center justify-center overflow-hidden"
           >
-            {/* ROTATING TEXT ADDED HERE FOR THE LOADING SCREEN */}
             <RotatingText
               texts={["COMMAND.", "CREATE.", "CONQUER.", "INTECHO'26"]}
-              mainClassName="text-5xl md:text-8xl font-syne font-bold text-white uppercase text-center overflow-hidden flex justify-center w-full"
+              mainClassName="text-4xl md:text-8xl font-syne font-bold text-white uppercase text-center overflow-hidden flex justify-center w-full"
               staggerFrom="last"
               initial={{ y: "100%", opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               exit={{ y: "-120%", opacity: 0 }}
-              staggerDuration={0.025}
+              
+              /* SMOOTHER ANIMATION SETTINGS HERE */
+              staggerDuration={0.04} 
               splitLevelClassName="overflow-hidden"
-              transition={{ type: "spring", damping: 30, stiffness: 400 }}
-              rotationInterval={800} // Speed: switches word every 0.8 seconds
+              transition={{ type: "spring", damping: 25, stiffness: 150 }} 
+              rotationInterval={1200} // Slower switching (1.2s per word)
             />
           </motion.div>
         )}
