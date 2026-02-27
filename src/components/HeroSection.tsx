@@ -6,25 +6,24 @@ const HeroSection = () => {
     <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 pb-16">
       <div className="relative z-10 flex flex-col items-center justify-center px-4 w-full">
         
-        {/* 1. Bigger, Smoothly Rotating IEA Logo */}
+        {/* 1. Rotating IEA Logo */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, ease: "easeOut" }}
-          className="mb-8"
+          className="mb-6"
         >
-          {/* The rotate: 360 with linear ease makes it spin endlessly and smoothly like a gear */}
           <motion.img 
             src="/name-1.png" 
             alt="IEA Logo" 
-            className="w-56 md:w-80 object-contain drop-shadow-[0_0_20px_rgba(255,255,255,0.15)]"
+            className="w-48 md:w-64 object-contain drop-shadow-[0_0_20px_rgba(255,255,255,0.15)]"
             animate={{ rotate: 360 }}
             transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
             onError={(e) => { e.currentTarget.style.display = 'none'; }}
           />
         </motion.div>
 
-        {/* 2. Big Retro/Modern IEA Text */}
+        {/* 2. Cool Retro-Futuristic IEA Text */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -32,10 +31,12 @@ const HeroSection = () => {
           className="mb-4 text-center"
         >
           <h1 
-            className="text-7xl md:text-[8rem] font-syne font-black text-[#ff2d2d] tracking-widest uppercase"
+            className="text-7xl md:text-[9rem] font-black italic tracking-widest uppercase"
             style={{
-              /* Mixes a classic retro hard-shadow with a modern neon glow */
-              textShadow: "4px 4px 0px rgba(255,255,255,0.1), 0 0 50px rgba(255,45,45,0.6)"
+              /* Hollow text with a glowing red neon border */
+              WebkitTextStroke: "3px #ff2d2d",
+              color: "transparent",
+              textShadow: "0 0 40px rgba(255,45,45,0.5)"
             }}
           >
             IEA
@@ -59,28 +60,33 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="mb-10 text-center relative"
+          className="mb-8 text-center relative"
         >
           <p className="font-syne text-xs md:text-sm uppercase tracking-[0.6em] text-[#ff2d2d] font-bold">
             Presents
           </p>
-          {/* A small decorative glowing line to separate the sections */}
-          <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-12 h-[2px] bg-gradient-to-r from-transparent via-[#ff2d2d] to-transparent opacity-50"></div>
+          <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-16 h-[2px] bg-gradient-to-r from-transparent via-[#ff2d2d] to-transparent opacity-60"></div>
         </motion.div>
 
-        {/* 5. Main INTECHO Logo */}
+        {/* 5. Massive Animated INTECHO'26 Text */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
+          initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
-          className="mb-10 mt-4"
+          transition={{ duration: 0.8, delay: 0.8, type: "spring", stiffness: 100 }}
+          className="mb-10 mt-6 text-center"
         >
-          <img 
-            src="/name-2.png" 
-            alt="INTECHO'26" 
-            className="w-80 md:w-[36rem] lg:w-[45rem] object-contain drop-shadow-[0_0_30px_rgba(255,255,255,0.15)]"
-            onError={(e) => { e.currentTarget.style.display = 'none'; }}
-          />
+          <motion.h2
+            /* Continuous breathing & gradient shifting animation */
+            animate={{ 
+              scale: [1, 1.02, 1],
+              backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"]
+            }}
+            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+            className="text-6xl sm:text-7xl md:text-[9rem] lg:text-[11rem] font-syne font-black uppercase tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-white via-[#ff2d2d] to-white drop-shadow-[0_0_20px_rgba(255,45,45,0.3)]"
+            style={{ backgroundSize: "200% auto" }}
+          >
+            INTECHO'26
+          </motion.h2>
         </motion.div>
 
         {/* 6. Subtitle / Description */}
