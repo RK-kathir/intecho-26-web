@@ -104,8 +104,8 @@ const Index = () => {
     checkDevice();
     window.addEventListener("resize", checkDevice);
 
-    // INCREASED TIMEOUT to 5 seconds so it matches our slower, smoother text animation
-    const timer = setTimeout(() => setShowIntro(false), 5000); 
+    // FIX: 6000ms ensures exactly 1.5 seconds for all 4 words!
+    const timer = setTimeout(() => setShowIntro(false), 6000); 
     return () => {
       clearTimeout(timer);
       window.removeEventListener("resize", checkDevice);
@@ -133,17 +133,18 @@ const Index = () => {
           >
             <RotatingText
               texts={["COMMAND.", "CREATE.", "CONQUER.", "INTECHO'26"]}
-              mainClassName="text-4xl md:text-8xl font-syne font-bold text-white uppercase text-center overflow-hidden flex justify-center w-full"
+              mainClassName="text-4xl md:text-8xl font-syne font-bold text-white uppercase text-center flex justify-center w-full"
               staggerFrom="last"
               initial={{ y: "100%", opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               exit={{ y: "-120%", opacity: 0 }}
-              
-              /* SMOOTHER ANIMATION SETTINGS HERE */
-              staggerDuration={0.04} 
+              staggerDuration={0.03} 
               splitLevelClassName="overflow-hidden"
               transition={{ type: "spring", damping: 25, stiffness: 150 }} 
-              rotationInterval={1200} // Slower switching (1.2s per word)
+              
+              /* THE PERFECT TIMING FIXES: */
+              rotationInterval={1500} // Exactly 1.5 seconds per word
+              animatePresenceMode="popLayout" // Solves the "speeding up" bug!
             />
           </motion.div>
         )}
