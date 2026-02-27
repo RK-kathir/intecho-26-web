@@ -11,6 +11,41 @@ import AboutMIT from "@/components/AboutMIT";
 import ContactSection from "@/components/ContactSection";
 import ScrollToTop from "@/components/ScrollToTop";
 import SectionDivider from "@/components/SectionDivider";
+import Hyperspeed from "@/components/Hyperspeed";
+
+// MOBILE ONLY: Custom NO-LAG CSS Hyperspeed Lines
+const MobileFastLines = () => (
+  <div className="fixed inset-0 z-[-1] pointer-events-none overflow-hidden bg-[#050505] flex justify-center">
+    {Array.from({ length: 15 }).map((_, i) => (
+      <motion.div
+        key={i}
+        className="absolute w-[2px] h-[30vh] bg-gradient-to-b from-transparent via-[#ff2d2d] to-transparent opacity-40"
+        style={{ left: `${Math.random() * 100}%` }}
+        animate={{ y: ["-30vh", "130vh"] }}
+        transition={{
+          duration: Math.random() * 0.8 + 0.5,
+          repeat: Infinity,
+          ease: "linear",
+          delay: Math.random() * 2
+        }}
+      />
+    ))}
+    {Array.from({ length: 10 }).map((_, i) => (
+      <motion.div
+        key={`purple-${i}`}
+        className="absolute w-[1px] h-[20vh] bg-gradient-to-b from-transparent via-[#6a5acd] to-transparent opacity-30"
+        style={{ left: `${Math.random() * 100}%` }}
+        animate={{ y: ["-20vh", "120vh"] }}
+        transition={{
+          duration: Math.random() * 1 + 0.7,
+          repeat: Infinity,
+          ease: "linear",
+          delay: Math.random() * 1.5
+        }}
+      />
+    ))}
+  </div>
+);
 
 const techEvents = [
   { image: "https://placehold.co/100/1a1a2e/ff2d2d?text=PC", title: "prompt clash", description: "Command. Create. Conquer. Master the art of AI prompting.", link: "https://docs.google.com/forms/d/e/1FAIpQLScIrj3nBV9k6puhdWuBRbyx1gdRcxDcKS9kqJ4ofEN92B3ymQ/viewform?usp=publish-editor" },
@@ -36,18 +71,35 @@ const workshops = [
 
 const Index = () => {
   const [showIntro, setShowIntro] = useState(true);
+  const [isMobile, setIsMobile] = useState(true); 
 
   useEffect(() => {
-    // The intro fades out, then unmounts completely, leaving zero memory footprint.
+    // Detect mobile
+    const checkDevice = () => setIsMobile(window.innerWidth < 768);
+    checkDevice();
+    window.addEventListener("resize", checkDevice);
+
     const timer = setTimeout(() => setShowIntro(false), 2000); 
-    return () => clearTimeout(timer);
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener("resize", checkDevice);
+    };
   }, []);
 
   return (
-    <div className="relative min-h-screen bg-[#050505] overflow-x-hidden">
+    <div className="relative min-h-screen bg-[#050505] overflow-x-hidden flex flex-col">
       
-      {/* 100% Static CSS Background - Zero CPU usage */}
-      <div className="fixed inset-0 z-[-1] pointer-events-none bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(255,45,45,0.12),rgba(255,255,255,0))]"></div>
+      {/* ---------------- BACKGROUND RENDERER ---------------- */}
+      <div className="fixed inset-0 z-[-1] pointer-events-none overflow-hidden">
+        {isMobile ? (
+          <MobileFastLines /> /* Custom NO-LAG speed lines for Mobile */
+        ) : (
+          <div className="absolute inset-0 opacity-40">
+            <Hyperspeed /> {/* Heavy 3D Hyperspeed for PC */}
+          </div>
+        )}
+      </div>
+      {/* --------------------------------------------------- */}
 
       <AnimatePresence>
         {showIntro && (
@@ -71,11 +123,11 @@ const Index = () => {
       <PassesSection />
       <SectionDivider />
 
-      <CarouselSection id="tech-events" title="Technical Events" items={techEvents} showRegister />
+      <CarouselSection id="tech-events" title="Technical Events" items={techEvents} showRegister={true} />
       <SectionDivider />
-      <CarouselSection id="nontech-events" title="Non-Tech Events" items={nonTechEvents} showRegister />
+      <CarouselSection id="nontech-events" title="Non-Tech Events" items={nonTechEvents} showRegister={true} />
       <SectionDivider />
-      <CarouselSection id="workshops" title="Workshops" items={workshops} showRegister />
+      <CarouselSection id="workshops" title="Workshops" items={workshops} showRegister={true} />
       
       <SectionDivider />
       <FoodSection />
@@ -87,13 +139,11 @@ const Index = () => {
       <ContactSection />
       <ScrollToTop />
 
-      <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-[50] pointer-events-none">
-        <div className="bg-[#111] border border-white/10 px-6 py-2 rounded-full shadow-lg">
-          <p className="text-[10px] md:text-xs font-syne tracking-[0.2em] text-white/70 uppercase">
-            Built with <span className="text-[#ff2d2d] font-bold">Kathirvel R</span>
-          </p>
-        </div>
-      </div>
+      <footer className="mt-auto py-8 bg-[#111] border-t border-white/10 text-center relative z-10 w-full">
+        <p className="text-xs font-syne tracking-[0.2em] text-white/70 uppercase">
+          Built with <span className="text-[#ff2d2d] font-bold">Kathirvel R</span>
+        </p>
+      </footer>
     </div>
   );
 };
