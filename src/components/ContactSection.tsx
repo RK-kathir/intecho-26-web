@@ -54,7 +54,7 @@ const ContactSection = () => {
               <span className="font-body text-base">Kalaiselvan L</span>
               <div className="flex items-center gap-3 bg-black/50 px-4 py-2 rounded-full group-hover:scale-105 transition-transform">
                 <PhoneCall className="w-4 h-4" />
-                <span className="font-mono tracking-wider">639564232</span>
+                <span className="font-mono tracking-wider">6369564232</span>
               </div>
             </a>
 
