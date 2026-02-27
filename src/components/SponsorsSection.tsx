@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 const sponsorGroups = [
   {
     label: "Sponsors",
-    sponsors: [<img src="https://i.ibb.co/hFvnqD29/placka-removebg-preview.png" alt="placka removebg preview" border="0">]
+    sponsors: ["logo placeholder"]
   }
 ];
 
