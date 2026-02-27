@@ -2,18 +2,9 @@ import { motion } from "framer-motion";
 
 const sponsorGroups = [
   {
-    label: "Title Sponsors",
+    label: "Sponsors",
     sponsors: ["Logo Placeholder", "Logo Placeholder"],
-  },
-  {
-    label: "Associate Sponsors",
-    sponsors: ["Logo Placeholder", "Logo Placeholder", "Logo Placeholder"],
-  },
-  {
-    label: "Certificate Sponsor",
-    sponsors: ["Logo Placeholder"],
-    wide: true,
-  },
+  }
 ];
 
 const SponsorsSection = () => {
