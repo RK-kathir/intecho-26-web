@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 const sponsorGroups = [
   {
     label: "Sponsors",
-    sponsors: ["Logo Placeholder"],
+    sponsors: ["https://ibb.co/s9rDBysR"]
   }
 ];
 
