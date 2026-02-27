@@ -41,12 +41,22 @@ const ContactSection = () => {
         <div className="bg-[#111] p-8 rounded-xl border border-white/10 flex flex-col gap-6 shadow-lg">
           <h3 className="text-xl font-heading font-bold text-white mb-2">Student Coordinators</h3>
           
+          
           <div className="flex flex-col gap-5">
             <a href="tel:6381655601" className="flex justify-between items-center text-gray-300 hover:text-[#ff2d2d] transition-colors group">
-              <span className="font-body text-base">Viswa</span>
+              <span className="font-body text-base">Viswa R</span>
               <div className="flex items-center gap-3 bg-black/50 px-4 py-2 rounded-full group-hover:scale-105 transition-transform">
                 <PhoneCall className="w-4 h-4" />
                 <span className="font-mono tracking-wider">6381655601</span>
+              </div>
+            </a>
+
+            <div className="flex flex-col gap-5">
+            <a href="tel:8248985695" className="flex justify-between items-center text-gray-300 hover:text-[#ff2d2d] transition-colors group">
+              <span className="font-body text-base">Sanjay kumar</span>
+              <div className="flex items-center gap-3 bg-black/50 px-4 py-2 rounded-full group-hover:scale-105 transition-transform">
+                <PhoneCall className="w-4 h-4" />
+                <span className="font-mono tracking-wider">8248985695</span>
               </div>
             </a>
 
