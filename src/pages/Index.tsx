@@ -1,7 +1,7 @@
-import { Suspense, lazy, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Header from "@/components/Header";
-import HeroSection from "@/components/HeroSection";
+import HeroSection from "@/components/HeroSection"; 
 import AboutSection from "@/components/AboutSection";
 import PassesSection from "@/components/PassesSection";
 import CarouselSection from "@/components/CarouselSection";
@@ -13,7 +13,17 @@ import ScrollToTop from "@/components/ScrollToTop";
 import SectionDivider from "@/components/SectionDivider";
 import CursorGlow from "@/components/CursorGlow";
 
-const ParticlesBg = lazy(() => import("@/components/ParticlesBg"));
+// 2D CSS-Only Robot (Zero Lag)
+const FlyingRobot = () => (
+  <motion.div
+    className="fixed pointer-events-none z-0 opacity-10 text-4xl will-change-transform"
+    style={{ transform: "translateZ(0)" }}
+    animate={{ x: ["-10vw", "110vw"], y: ["30vh", "30vh"] }}
+    transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+  >
+    🤖
+  </motion.div>
+);
 
 const techEvents = [
   { image: "https://placehold.co/100/1a1a2e/ff2d2d?text=PC", title: "prompt clash", description: "Command. Create. Conquer. Master the art of AI prompting.", link: "https://docs.google.com/forms/d/e/1FAIpQLScIrj3nBV9k6puhdWuBRbyx1gdRcxDcKS9kqJ4ofEN92B3ymQ/viewform?usp=publish-editor" },
@@ -39,12 +49,11 @@ const workshops = [
 
 const Index = () => {
   const [showIntro, setShowIntro] = useState(true);
+  const [shockActive, setShockActive] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    const checkDevice = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
+    const checkDevice = () => setIsMobile(window.innerWidth < 768);
     checkDevice();
     window.addEventListener('resize', checkDevice);
     
@@ -55,18 +64,24 @@ const Index = () => {
     };
   }, []);
 
+  const handleInteraction = () => {
+    if (isMobile) return; // Completely disable electric shock on mobile to save battery/RAM
+    setShockActive(true);
+    setTimeout(() => setShockActive(false), 150);
+  };
+
   return (
-    <div className="relative min-h-screen bg-background overflow-x-hidden">
+    <div className="relative min-h-screen bg-[#050505] overflow-x-hidden" onClick={handleInteraction}>
       <AnimatePresence>
         {showIntro && (
           <motion.div 
-            exit={{ opacity: 0, scale: 1.1 }} 
+            exit={{ opacity: 0 }} 
             className="fixed inset-0 z-[999] bg-black flex items-center justify-center overflow-hidden"
           >
             <motion.h1 
-              initial={{ letterSpacing: "-0.5em", opacity: 0 }}
-              animate={{ letterSpacing: "0.3em", opacity: 1 }}
-              transition={{ duration: 1.5, ease: "easeOut" }}
+              initial={{ letterSpacing: "-0.2em", opacity: 0 }}
+              animate={{ letterSpacing: "0.2em", opacity: 1 }}
+              transition={{ duration: 1 }}
               className="text-5xl md:text-8xl font-syne font-bold text-white uppercase text-center"
             >
               INTECHO'26
@@ -75,18 +90,26 @@ const Index = () => {
         )}
       </AnimatePresence>
 
-      <CursorGlow />
+      {/* Lightweight Static Background replacing GLB */}
+      <div className="fixed inset-0 z-[-1] opacity-30 pointer-events-none">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary/10 via-background to-background" />
+      </div>
 
-      {/* Optimized Background: Simple pulse for Mobile, Particles for Desktop */}
-      {isMobile ? (
-        <div className="fixed inset-0 z-[-1] opacity-20">
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-blue-500/10 animate-pulse" />
-        </div>
-      ) : (
-        <Suspense fallback={null}>
-          <ParticlesBg />
-        </Suspense>
-      )}
+      <FlyingRobot />
+      {!isMobile && <CursorGlow />} {/* Glow only on laptop */}
+
+      {/* Reduced Electric Effect for Laptop ONLY */}
+      <AnimatePresence>
+        {shockActive && !isMobile && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 0.3 }} // Greatly reduced opacity
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.1 }}
+            className="fixed inset-0 z-0 pointer-events-none bg-primary/20"
+          />
+        )}
+      </AnimatePresence>
 
       <Header />
       <HeroSection />
@@ -113,7 +136,7 @@ const Index = () => {
       <ScrollToTop />
 
       <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-[50] pointer-events-none">
-        <div className="bg-black/40 backdrop-blur-md border border-white/10 px-6 py-2 rounded-full">
+        <div className="bg-black/60 border border-white/10 px-6 py-2 rounded-full">
           <p className="text-[10px] md:text-xs font-syne tracking-[0.2em] text-white/70 uppercase">
             Built with <span className="text-[#ff2d2d] font-bold">Kathirvel R</span>
           </p>
