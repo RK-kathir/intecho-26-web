@@ -13,6 +13,8 @@ import SectionDivider from "@/components/SectionDivider";
 
 // @ts-ignore
 import Hyperspeed from "@/components/Hyperspeed";
+// Import our new RotatingText for the intro!
+import RotatingText from "@/components/RotatingText";
 
 const hyperspeedOptions = {
   distortion: "xyDistortion",
@@ -76,15 +78,11 @@ const MobileFastLines = () => (
 const techEvents = [
   { image: "https://placehold.co/100/1a1a2e/ff2d2d?text=PC", title: "prompt clash", description: "Command. Create. Conquer. Master the art of AI prompting.", link: "https://docs.google.com/forms/d/e/1FAIpQLScIrj3nBV9k6puhdWuBRbyx1gdRcxDcKS9kqJ4ofEN92B3ymQ/viewform?usp=publish-editor" },
   { image: "https://placehold.co/100/1a1a2e/ff2d2d?text=CC", title: "code craze", description: "Unleash your coding prowess in this high-intensity hackathon.", link: "https://docs.google.com/forms/d/e/1FAIpQLSculCkJKPQp6PDi5ndc4YFgkTmi2D07FW-PFM12Lhs4xul85A/viewform?usp=dialog" },
-  
-  // IDEA FORGE REPLACED WITH QUIZ ARENA
   { image: "https://placehold.co/100/1a1a2e/ff2d2d?text=QA", title: "quiz arena", description: "Test your ultimate technical knowledge in this high-stakes battle of wits.", link: "https://docs.google.com/forms/d/e/1FAIpQLSd5sMB0xBXFKvKJE71ULzYI8q4dezO5U8BEcjtnoszT7HaM3g/viewform?usp=publish-editor" },
-  
   { image: "https://placehold.co/100/1a1a2e/ff2d2d?text=TG", title: "tech guess", description: "Test your technical vocabulary in this fast-paced guessing game.", link: "https://docs.google.com/forms/d/e/1FAIpQLSe4S3gbcyQJWmXNTBIqmNSd6RqfHOqIeTXnixgm-m7qQFuI5w/viewform?usp=publish-editor" },
   { image: "https://placehold.co/100/1a1a2e/ff2d2d?text=PP", title: "paper presentation", description: "Present your technical papers and innovative ideas.", link: "https://docs.google.com/forms/d/e/1FAIpQLSeLvZlgJaPGHpSBrGimyO0Jn2OCdZ5TFlnylSzClNvkNVHePQ/viewform?usp=publish-editor" },
 ];
 
-// LOCKED AND LOST REMOVED
 const nonTechEvents = [
   { image: "https://placehold.co/100/1a1a2e/6a5acd?text=TH", title: "treasure hunt", description: "Solve clues and hunt for the hidden treasure.", link: "https://docs.google.com/forms/d/e/1FAIpQLSeqs7HR1taI9vrmAHWeOp_zQoHlslMVb6vaArDA-9dx465J5g/viewform?usp=publish-editor" },
   { image: "https://placehold.co/100/1a1a2e/6a5acd?text=US", title: "uno showdown", description: "Battle it out in this classic card game.", link: "https://docs.google.com/forms/d/e/1FAIpQLSeV5mmCdF4Wu8yMbIjQNgk2f0dPI5W9yg8UfiAdTAcMrw6XbA/viewform?usp=dialog" },
@@ -107,7 +105,8 @@ const Index = () => {
     checkDevice();
     window.addEventListener("resize", checkDevice);
 
-    const timer = setTimeout(() => setShowIntro(false), 2000); 
+    // INCREASED TIMEOUT to 3.5 seconds so the words have time to rotate!
+    const timer = setTimeout(() => setShowIntro(false), 3500); 
     return () => {
       clearTimeout(timer);
       window.removeEventListener("resize", checkDevice);
@@ -134,9 +133,19 @@ const Index = () => {
             transition={{ duration: 0.5 }}
             className="fixed inset-0 z-[999] bg-black flex items-center justify-center overflow-hidden"
           >
-            <h1 className="text-5xl md:text-8xl font-syne font-bold text-white uppercase text-center">
-              INTECHO'26
-            </h1>
+            {/* ROTATING TEXT ADDED HERE FOR THE LOADING SCREEN */}
+            <RotatingText
+              texts={["COMMAND.", "CREATE.", "CONQUER.", "INTECHO'26"]}
+              mainClassName="text-5xl md:text-8xl font-syne font-bold text-white uppercase text-center overflow-hidden flex justify-center w-full"
+              staggerFrom="last"
+              initial={{ y: "100%", opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: "-120%", opacity: 0 }}
+              staggerDuration={0.025}
+              splitLevelClassName="overflow-hidden"
+              transition={{ type: "spring", damping: 30, stiffness: 400 }}
+              rotationInterval={800} // Speed: switches word every 0.8 seconds
+            />
           </motion.div>
         )}
       </AnimatePresence>
@@ -154,8 +163,6 @@ const Index = () => {
       <CarouselSection id="nontech-events" title="Non-Tech Events" items={nonTechEvents} showRegister={true} />
       <SectionDivider />
       <CarouselSection id="workshops" title="Workshops" items={workshops} showRegister={true} />
-      
-      {/* FOOD SECTION COMPLETELY REMOVED */}
       
       <SectionDivider />
       <SponsorsSection />
