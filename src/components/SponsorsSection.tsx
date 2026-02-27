@@ -5,7 +5,7 @@ const sponsors = [
     name: "Placka",
     logo: "https://i.ibb.co/KcXSCvgQ/placka.jpg",
     alt: "placka", 
-    border="0"
+    border: "0"
   },
   // If you get more sponsors in the future, just add them here like this:
   // { name: "Another Sponsor", logo: "IMAGE_URL_HERE", alt: "Sponsor Name" }
