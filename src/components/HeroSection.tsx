@@ -1,91 +1,75 @@
 import { motion } from "framer-motion";
-import name1 from "@/assets/name-1.png";
-import name2 from "@/assets/name-2.png";
 import MagneticButton from "./MagneticButton";
-
-const scrollTo = (id: string) => {
-  document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-};
+import RotatingText from "./RotatingText";
 
 const HeroSection = () => {
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#050505]">
-      
-      {/* Lightweight Ambient Glow Animation (Replaces heavy GLB 3D Model) */}
-      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-        <motion.div
-          animate={{ y: ["-2rem", "2rem", "-2rem"], opacity: [0.2, 0.4, 0.2] }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-[20%] left-[10%] w-[15rem] h-[15rem] rounded-full bg-[#ff2d2d] blur-[8rem] opacity-20"
-        />
-        <motion.div
-          animate={{ y: ["2rem", "-2rem", "2rem"], opacity: [0.1, 0.3, 0.1] }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute bottom-[20%] right-[10%] w-[20rem] h-[20rem] rounded-full bg-[#6a5acd] blur-[10rem] opacity-20"
-        />
-      </div>
-
-      {/* Foreground Glass Box using rem for perfect mobile scaling */}
-      <motion.div
-        initial={{ opacity: 0, y: "3rem", scale: 0.95 }}
-        animate={{ opacity: 1, y: 0, scale: 1 }}
-        transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
-        className="relative z-10 glass-strong rounded-[1.5rem] p-[2rem] md:p-[3rem] flex flex-col items-center gap-[1rem] w-[90%] max-w-[40rem] mx-auto shadow-2xl"
-      >
-        <motion.img
-          src={name1}
-          alt="INTECHO'26"
-          className="w-[18rem] md:w-[25rem] h-auto"
-          animate={{ y: [0, "-0.5rem", 0] }}
-          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-        />
-        
-        <p className="font-heading text-[0.65rem] md:text-[0.85rem] uppercase tracking-[0.2em] md:tracking-[0.3em] text-muted-foreground text-center">
-          Instrumentation Engineers Association
-        </p>
-        
-        <p className="font-body italic text-[#ff2d2d] text-[0.85rem] md:text-[1rem] lowercase">
-          presents
-        </p>
-        
-        <motion.img
-          src={name2}
-          alt="IEA"
-          className="w-[12rem] md:w-[18rem] h-auto"
-          animate={{ y: [0, "-0.3rem", 0] }}
-          transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-        />
+    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+      <div className="relative z-10 flex flex-col items-center justify-center px-4 w-full">
         
         <motion.div
-          initial={{ opacity: 0, y: "1rem" }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1, duration: 0.6 }}
-          className="mt-[1rem] flex flex-col sm:flex-row gap-[1rem] w-full sm:w-auto"
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="mb-8"
         >
-          <div className="w-full sm:w-auto">
-            <MagneticButton variant="primary" onClick={() => scrollTo("passes")}>
-              Get Your Pass
-            </MagneticButton>
+          <img 
+            src="/iea-logo.png" 
+            alt="IEA Logo" 
+            className="w-24 h-24 md:w-32 md:h-32 object-contain drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]"
+            onError={(e) => { e.currentTarget.style.display = 'none'; }}
+          />
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="text-center flex flex-col items-center"
+        >
+          {/* --- THE NEW ROTATING TEXT --- */}
+          <div className="h-[80px] md:h-[120px] flex items-center justify-center overflow-hidden">
+            <RotatingText
+              texts={["INTECHO'26", "COMMAND.", "CREATE.", "CONQUER."]}
+              mainClassName="text-6xl md:text-[8rem] font-syne font-bold text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-200 to-gray-500 uppercase tracking-tighter"
+              staggerFrom="last"
+              initial={{ y: "100%", opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: "-120%", opacity: 0 }}
+              staggerDuration={0.03}
+              transition={{ type: "spring", damping: 30, stiffness: 400 }}
+              rotationInterval={3500}
+            />
           </div>
-          <div className="w-full sm:w-auto">
-            <MagneticButton variant="glass" onClick={() => scrollTo("tech-events")}>
+          {/* ----------------------------- */}
+
+          <p className="font-heading text-[0.65rem] md:text-[0.85rem] uppercase tracking-[0.2em] md:tracking-[0.3em] text-gray-400 text-center mt-6">
+            Instrumentation Engineers Association
+          </p>
+
+          <p className="mt-6 md:mt-8 font-body text-base md:text-xl text-gray-300 max-w-2xl mx-auto px-4 leading-relaxed">
+            A national level technical symposium bringing together the brightest minds in engineering.
+          </p>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="mt-10 md:mt-12 flex flex-col sm:flex-row gap-4 sm:gap-6 w-full sm:w-auto px-4"
+        >
+          <a href="#passes" className="w-full sm:w-auto">
+            <MagneticButton variant="solid" className="w-full sm:w-auto px-8 py-4 text-sm bg-[#ff2d2d] hover:bg-[#ff102a] text-white">
+              Get Passes
+            </MagneticButton>
+          </a>
+          <a href="#tech-events" className="w-full sm:w-auto">
+            <MagneticButton variant="glass" className="w-full sm:w-auto px-8 py-4 text-sm bg-white/5 border border-white/10 hover:bg-white/10 text-white">
               Explore Events
             </MagneticButton>
-          </div>
+          </a>
         </motion.div>
-      </motion.div>
-
-      {/* Scroll indicator */}
-      <motion.div
-        className="absolute bottom-[2rem] left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-[0.5rem]"
-        animate={{ y: [0, "0.5rem", 0] }}
-        transition={{ duration: 2, repeat: Infinity }}
-      >
-        <span className="text-muted-foreground text-[0.6rem] md:text-[0.7rem] font-body tracking-[0.2em] uppercase">
-          Scroll
-        </span>
-        <div className="w-[1px] h-[2rem] bg-gradient-to-b from-[#ff2d2d] to-transparent" />
-      </motion.div>
+      </div>
     </section>
   );
 };
