@@ -4,7 +4,7 @@ import MagneticButton from "./MagneticButton";
 
 const passes = [
   // Tiers MUST be lowercase to match tierStyles
-  { name: "Diamond Pass", price: "₹649", desc: "Unlock access to 4 events with premium perks!", tier: "diamond", link: "#" },
+  { name: "diamond Pass", price: "₹649", desc: "Unlock access to 4 events with premium perks!", tier: "diamond", link: "#" },
   { name: "gold Pass", price: "₹499", desc: "Join 3 events with exclusive benefits!", tier: "gold", link: "#" },
   { name: "silver Pass", price: "₹349", desc: "Experience 2 events with essential access!", tier: "silver", link: "#" },
 ];
