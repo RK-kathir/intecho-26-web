@@ -3,7 +3,7 @@ import TiltCard from "./TiltCard";
 import MagneticButton from "./MagneticButton";
 
 const passes = [
-  { name: "Diamond Pass", price: "₹649", desc: "Unlock access to 4 events with premium perks!", tier: "Diamond" },
+  { name: "diamond Pass", price: "₹649", desc: "Unlock access to 4 events with premium perks!", tier: "diamond" },
   { name: "gold Pass", price: "₹499", desc: "Join 3 events with exclusive benefits!", tier: "gold" },
   { name: "silver Pass", price: "₹349", desc: "Experience 2 events with essential access!", tier: "silver" },
 ];
