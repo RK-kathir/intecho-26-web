@@ -51,7 +51,6 @@ const ContactSection = () => {
               </div>
             </a>
 
-            <div className="flex flex-col gap-5">
             <a href="tel:8248985695" className="flex justify-between items-center text-gray-300 hover:text-[#ff2d2d] transition-colors group">
               <span className="font-body text-base">Sanjay kumar</span>
               <div className="flex items-center gap-3 bg-black/50 px-4 py-2 rounded-full group-hover:scale-105 transition-transform">
