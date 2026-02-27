@@ -38,16 +38,22 @@ const Index = () => {
   const [showIntro, setShowIntro] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => setShowIntro(false), 2000); // Faster intro
+    // The intro fades out, then unmounts completely, leaving zero memory footprint.
+    const timer = setTimeout(() => setShowIntro(false), 2000); 
     return () => clearTimeout(timer);
   }, []);
 
   return (
     <div className="relative min-h-screen bg-[#050505] overflow-x-hidden">
+      
+      {/* 100% Static CSS Background - Zero CPU usage */}
+      <div className="fixed inset-0 z-[-1] pointer-events-none bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(255,45,45,0.12),rgba(255,255,255,0))]"></div>
+
       <AnimatePresence>
         {showIntro && (
           <motion.div 
-            exit={{ opacity: 0 }} 
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.5 }}
             className="fixed inset-0 z-[999] bg-black flex items-center justify-center overflow-hidden"
           >
             <h1 className="text-5xl md:text-8xl font-syne font-bold text-white uppercase text-center">
@@ -56,9 +62,6 @@ const Index = () => {
           </motion.div>
         )}
       </AnimatePresence>
-
-      {/* Ultra-Lightweight Static CSS Background */}
-      <div className="fixed inset-0 z-[-1] pointer-events-none bg-[radial-gradient(circle_at_center,_#ff2d2d0a_0%,_transparent_70%)]" />
 
       <Header />
       <HeroSection />
