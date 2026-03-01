@@ -17,6 +17,11 @@ import unoShowdownLogo from "@/assets/UNO showdown.png";
 import chessLogo from "@/assets/Chess.png";
 import twinTacticsLogo from "@/assets/Twin tactics.png";
 import quizzardLogo from "@/assets/Quizzard.png";
+import promptClashLogo from "@/assets/Prompt clash.png";
+import codeCrazeLogo from "@/assets/Code Craze.png";
+import quizArenaLogo from "@/assets/Quiz Arena.png";
+import techGuessLogo from "@/assets/Tech Guess.png";
+import paperPresentationLogo from "@/assets/Paper presentation.png";
 
 // @ts-ignore
 import Hyperspeed from "@/components/Hyperspeed";
@@ -82,11 +87,36 @@ const MobileFastLines = () => (
 );
 
 const techEvents = [
-  { image: "https://placehold.co/100/1a1a2e/ff2d2d?text=PC", title: "prompt clash", description: "Command. Create. Conquer. Master the art of AI prompting.", link: "https://docs.google.com/forms/d/e/1FAIpQLScIrj3nBV9k6puhdWuBRbyx1gdRcxDcKS9kqJ4ofEN92B3ymQ/viewform?usp=publish-editor" },
-  { image: "https://placehold.co/100/1a1a2e/ff2d2d?text=CC", title: "code craze", description: "Unleash your coding prowess in this high-intensity hackathon.", link: "https://docs.google.com/forms/d/e/1FAIpQLSculCkJKPQp6PDi5ndc4YFgkTmi2D07FW-PFM12Lhs4xul85A/viewform?usp=dialog" },
-  { image: "https://placehold.co/100/1a1a2e/ff2d2d?text=QA", title: "quiz arena", description: "Test your ultimate technical knowledge in this high-stakes battle of wits.", link: "https://docs.google.com/forms/d/e/1FAIpQLSd5sMB0xBXFKvKJE71ULzYI8q4dezO5U8BEcjtnoszT7HaM3g/viewform?usp=publish-editor" },
-  { image: "https://placehold.co/100/1a1a2e/ff2d2d?text=TG", title: "tech guess", description: "Test your technical vocabulary in this fast-paced guessing game.", link: "https://docs.google.com/forms/d/e/1FAIpQLSe4S3gbcyQJWmXNTBIqmNSd6RqfHOqIeTXnixgm-m7qQFuI5w/viewform?usp=publish-editor" },
-  { image: "https://placehold.co/100/1a1a2e/ff2d2d?text=PP", title: "paper presentation", description: "Present your technical papers and innovative ideas.", link: "https://docs.google.com/forms/d/e/1FAIpQLSeLvZlgJaPGHpSBrGimyO0Jn2OCdZ5TFlnylSzClNvkNVHePQ/viewform?usp=publish-editor" },
+  { 
+    image: promptClashLogo, 
+    title: "prompt clash", 
+    description: "Command. Create. Conquer. Master the art of AI prompting.", 
+    link: "https://docs.google.com/forms/d/e/1FAIpQLScIrj3nBV9k6puhdWuBRbyx1gdRcxDcKS9kqJ4ofEN92B3ymQ/viewform?usp=publish-editor" 
+  },
+  { 
+    image: codeCrazeLogo, 
+    title: "code craze", 
+    description: "Unleash your coding prowess in this high-intensity hackathon.", 
+    link: "https://docs.google.com/forms/d/e/1FAIpQLSculCkJKPQp6PDi5ndc4YFgkTmi2D07FW-PFM12Lhs4xul85A/viewform?usp=dialog" 
+  },
+  { 
+    image: quizArenaLogo, 
+    title: "quiz arena", 
+    description: "Test your ultimate technical knowledge in this high-stakes battle of wits.", 
+    link: "https://docs.google.com/forms/d/e/1FAIpQLSd5sMB0xBXFKvKJE71ULzYI8q4dezO5U8BEcjtnoszT7HaM3g/viewform?usp=publish-editor" 
+  },
+  { 
+    image: techGuessLogo, 
+    title: "tech guess", 
+    description: "Test your technical vocabulary in this fast-paced guessing game.", 
+    link: "https://docs.google.com/forms/d/e/1FAIpQLSe4S3gbcyQJWmXNTBIqmNSd6RqfHOqIeTXnixgm-m7qQFuI5w/viewform?usp=publish-editor" 
+  },
+  { 
+    image: paperPresentationLogo, 
+    title: "paper presentation", 
+    description: "Present your technical papers and innovative ideas.", 
+    link: "https://docs.google.com/forms/d/e/1FAIpQLSeLvZlgJaPGHpSBrGimyO0Jn2OCdZ5TFlnylSzClNvkNVHePQ/viewform?usp=publish-editor" 
+  },
 ];
 
 const nonTechEvents = [
