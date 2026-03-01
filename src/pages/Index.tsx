@@ -10,6 +10,8 @@ import AboutMIT from "@/components/AboutMIT";
 import ContactSection from "@/components/ContactSection";
 import ScrollToTop from "@/components/ScrollToTop";
 import SectionDivider from "@/components/SectionDivider";
+import pmaLogo from "@/assets/PMA logo.png";
+import siemensLogo from "@/assets/Siemens logo.png";
 
 // @ts-ignore
 import Hyperspeed from "@/components/Hyperspeed";
@@ -91,10 +93,19 @@ const nonTechEvents = [
 ];
 
 const workshops = [
-  { image: "https://placehold.co/100/1a1a2e/ff2d2d?text=PMA", title: "PMA Workshop", description: "A hands-on workshop on Berghof PLC programming and EtherCAT communication. Learn how PLCs establish real-time device networks and witness a live rotary furnace automation demo in CODESYS..", link: "https://docs.google.com/forms/d/e/1FAIpQLSerjUJLcNpGaIiolj0lB3V8kRmYhYyx-tmWR7sNcfp7Xj8SGA/viewform?usp=publish-editor" },
-  { image: "https://placehold.co/100/1a1a2e/ff2d2d?text=S", title: "Siemens Workshop", description: "A 3-hour hands-on workshop introducing Industry 4.0 concepts using Siemens PLC and MTAB Mechatronics stations. Experience real-time automation across a complete smart manufacturing process..", link: "https://docs.google.com/forms/d/e/1FAIpQLSeRFgzYUXG_F2hztiRHPivb8wk-BbbRvBHO9YdjPgQn8FUKAw/viewform?usp=publish-editor" },
+  { 
+    image: pmaLogo, 
+    title: "PMA Workshop", 
+    description: "A hands-on workshop on Berghof PLC programming and EtherCAT communication. Learn how PLCs establish real-time device networks and witness a live rotary furnace automation demo in CODESYS.", 
+    link: "https://docs.google.com/forms/d/e/1FAIpQLSerjUJLcNpGaIiolj0lB3V8kRmYhYyx-tmWR7sNcfp7Xj8SGA/viewform?usp=publish-editor" 
+  },
+  { 
+    image: siemensLogo, 
+    title: "Siemens Workshop", 
+    description: "A 3-hour hands-on workshop introducing Industry 4.0 concepts using Siemens PLC and MTAB Mechatronics stations. Experience real-time automation across a complete smart manufacturing process.", 
+    link: "https://docs.google.com/forms/d/e/1FAIpQLSeRFgzYUXG_F2hztiRHPivb8wk-BbbRvBHO9YdjPgQn8FUKAw/viewform?usp=publish-editor" 
+  },
 ];
-
 const Index = () => {
   const [showIntro, setShowIntro] = useState(true);
   const [isMobile, setIsMobile] = useState(true);
