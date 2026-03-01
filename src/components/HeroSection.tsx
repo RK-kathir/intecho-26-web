@@ -28,11 +28,11 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="mb-4 text-center"
+          className="mb-4 text-center w-full"
         >
           <h1 
-            /* Changed to font-sans font-black and matched the exact size of INTECHO'26 */
-            className="text-6xl sm:text-7xl md:text-[8rem] font-sans font-black tracking-[0.1em] uppercase"
+            /* THE FIX: Changed mobile size to text-[12vw] to prevent edge cutoffs */
+            className="text-[12vw] sm:text-7xl md:text-[8rem] font-sans font-black tracking-[0.1em] uppercase whitespace-nowrap"
             style={{
               WebkitTextStroke: "3px #ff2d2d",
               color: "transparent",
@@ -48,9 +48,9 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="mb-10 text-center"
+          className="mb-10 text-center px-2"
         >
-          <p className="font-heading text-xs md:text-sm uppercase tracking-[0.25em] md:tracking-[0.4em] text-gray-300">
+          <p className="font-heading text-[10px] sm:text-xs md:text-sm uppercase tracking-[0.15em] sm:tracking-[0.25em] md:tracking-[0.4em] text-gray-300">
             Instrumentation Engineers Association
           </p>
         </motion.div>
@@ -73,7 +73,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.8, type: "spring", stiffness: 100 }}
-          className="mb-10 mt-6 text-center"
+          className="mb-10 mt-6 text-center w-full"
         >
           <motion.h2
             animate={{ 
@@ -81,8 +81,8 @@ const HeroSection = () => {
               backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"]
             }}
             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-            /* Changed to font-sans font-black and reduced size down to exactly match IEA */
-            className="text-6xl sm:text-7xl md:text-[8rem] font-sans font-black uppercase tracking-[0.1em] text-transparent bg-clip-text bg-gradient-to-r from-white via-[#ff2d2d] to-white drop-shadow-[0_0_20px_rgba(255,45,45,0.3)]"
+            /* THE FIX: Changed mobile size to text-[11vw] to perfectly fit the screen width */
+            className="text-[11vw] sm:text-6xl md:text-[8rem] font-sans font-black uppercase tracking-[0.1em] text-transparent bg-clip-text bg-gradient-to-r from-white via-[#ff2d2d] to-white drop-shadow-[0_0_20px_rgba(255,45,45,0.3)] whitespace-nowrap"
             style={{ backgroundSize: "200% auto" }}
           >
             INTECHO'26
@@ -96,7 +96,7 @@ const HeroSection = () => {
           transition={{ duration: 0.8, delay: 1.0 }}
           className="text-center"
         >
-          <p className="font-body text-base md:text-xl text-gray-300 max-w-2xl mx-auto px-4 leading-relaxed">
+          <p className="font-body text-sm sm:text-base md:text-xl text-gray-300 max-w-2xl mx-auto px-4 leading-relaxed">
             A national level technical symposium bringing together the brightest minds in engineering.
           </p>
         </motion.div>
