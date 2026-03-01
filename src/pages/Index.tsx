@@ -133,8 +133,8 @@ const Index = () => {
           >
             <RotatingText
               texts={["COMMAND.", "CREATE.", "CONQUER.", "INTECHO'26"]}
-              /* CHANGED: Made text smaller (text-3xl md:text-6xl) and changed style (font-inter font-medium tracking-wide) */
-              mainClassName="text-3xl md:text-6xl font-inter font-medium tracking-wide text-white uppercase text-center flex justify-center w-full"
+              /* CHANGED: text-xl for mobile, sm:text-3xl for small tablets, md:text-6xl for desktop, added px-4 for padding */
+              mainClassName="text-xl sm:text-3xl md:text-6xl font-inter font-medium tracking-wide text-white uppercase text-center flex justify-center w-full px-4"
               staggerFrom="last"
               initial={{ y: "100%", opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
