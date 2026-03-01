@@ -133,8 +133,8 @@ const Index = () => {
           >
             <RotatingText
               texts={["COMMAND.", "CREATE.", "CONQUER.", "INTECHO'26"]}
-              /* CHANGED: text-xl for mobile, sm:text-3xl for small tablets, md:text-6xl for desktop, added px-4 for padding */
-              mainClassName="text-xl sm:text-3xl md:text-6xl font-inter font-medium tracking-wide text-white uppercase text-center flex justify-center w-full px-4"
+              /* THE FIX: text-[8vw] forces the font to perfectly fit the screen width on mobile! */
+              mainClassName="text-[8vw] md:text-6xl font-inter font-medium tracking-wide text-white uppercase text-center flex justify-center w-full px-4 whitespace-nowrap"
               staggerFrom="last"
               initial={{ y: "100%", opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
@@ -143,9 +143,8 @@ const Index = () => {
               splitLevelClassName="overflow-hidden"
               transition={{ type: "spring", damping: 25, stiffness: 150 }} 
               
-              /* THE PERFECT TIMING FIXES: */
-              rotationInterval={1500} // Exactly 1.5 seconds per word
-              animatePresenceMode="popLayout" // Solves the "speeding up" bug!
+              rotationInterval={1500}
+              animatePresenceMode="popLayout" 
             />
           </motion.div>
         )}
