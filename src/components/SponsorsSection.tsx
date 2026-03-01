@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-// 1. Import your exact logo files from the assets folder
+// Import your exact logo files from the assets folder
 import siemensLogo from "@/assets/Siemens logo.png";
 import indianBankLogo from "@/assets/Indian bank logo.png";
 import indusAutoLogo from "@/assets/Indusauto logo.png";
@@ -39,15 +39,14 @@ const SponsorsSection = () => {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
-            // This container defines the box size. We keep it sleek with a border!
-            className="relative group bg-zinc-900 border border-white/10 rounded-xl overflow-hidden h-48 md:h-56 flex items-center justify-center hover:border-[#ff2d2d]/50 transition-colors shadow-lg"
+            // Changed background slightly and kept the border
+            className="relative group bg-white/5 border border-white/10 rounded-xl overflow-hidden h-48 md:h-56 flex items-center justify-center hover:border-[#ff2d2d]/50 transition-colors shadow-lg"
           >
-            {/* THE FIX: w-full h-full makes it stretch to the edges. 
-                object-cover ensures there is ZERO empty background space! */}
+            {/* THE FIX: Changed 'object-cover' to 'object-contain' and added 'p-6' padding */}
             <img 
               src={sponsor.logo} 
               alt={sponsor.name} 
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+              className="w-full h-full object-contain p-6 group-hover:scale-105 transition-transform duration-500" 
             />
           </motion.div>
         ))}
