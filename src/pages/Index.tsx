@@ -12,6 +12,11 @@ import ScrollToTop from "@/components/ScrollToTop";
 import SectionDivider from "@/components/SectionDivider";
 import pmaLogo from "@/assets/PMA logo.png";
 import siemensLogo from "@/assets/Siemens logo.png";
+import treasureHuntLogo from "@/assets/Treasure hunt.png";
+import unoShowdownLogo from "@/assets/UNO showdown.png";
+import chessLogo from "@/assets/Chess.png";
+import twinTacticsLogo from "@/assets/Twin tactics.png";
+import quizzardLogo from "@/assets/Quizzard.png";
 
 // @ts-ignore
 import Hyperspeed from "@/components/Hyperspeed";
@@ -85,13 +90,37 @@ const techEvents = [
 ];
 
 const nonTechEvents = [
-  { image: "https://placehold.co/100/1a1a2e/6a5acd?text=TH", title: "treasure hunt", description: "Solve clues and hunt for the hidden treasure.", link: "https://docs.google.com/forms/d/e/1FAIpQLSeqs7HR1taI9vrmAHWeOp_zQoHlslMVb6vaArDA-9dx465J5g/viewform?usp=publish-editor" },
-  { image: "https://placehold.co/100/1a1a2e/6a5acd?text=US", title: "uno showdown", description: "Battle it out in this classic card game.", link: "https://docs.google.com/forms/d/e/1FAIpQLSeV5mmCdF4Wu8yMbIjQNgk2f0dPI5W9yg8UfiAdTAcMrw6XbA/viewform?usp=dialog" },
-  { image: "https://placehold.co/100/1a1a2e/6a5acd?text=CH", title: "chess", description: "Master the 64 squares in this strategic battle of minds.", link: "https://docs.google.com/forms/d/e/1FAIpQLScLYE1E8NL-0vxqAerutnmLjEUmOpKaHJq-Y-axViVPc8cylQ/viewform?usp=publish-editor" },
-  { image: "https://placehold.co/100/1a1a2e/6a5acd?text=TT", title: "twin tactics", description: "Sync up and win in dual challenges.", link: "https://docs.google.com/forms/d/e/1FAIpQLSfIGsidDolEdkbgOP7QZxcO34awK-5WJj_U7OrPLCjWFoIUCg/viewform?usp=publish-editor" },
-  { image: "https://placehold.co/100/1a1a2e/6a5acd?text=QZ", title: "quizzard", description: "Test your knowledge in this rapid-fire quiz.", link: "https://docs.google.com/forms/d/e/1FAIpQLSfLL6YvswrJTjl9_AywrXEjBsxpH5q_HjJfl9ibdlzZogS_Ww/viewform?usp=publish-editor" }
+  { 
+    image: treasureHuntLogo, 
+    title: "treasure hunt", 
+    description: "Solve clues and hunt for the hidden treasure.", 
+    link: "https://docs.google.com/forms/d/e/1FAIpQLSeqs7HR1taI9vrmAHWeOp_zQoHlslMVb6vaArDA-9dx465J5g/viewform?usp=publish-editor" 
+  },
+  { 
+    image: unoShowdownLogo, 
+    title: "uno showdown", 
+    description: "Battle it out in this classic card game.", 
+    link: "https://docs.google.com/forms/d/e/1FAIpQLSeV5mmCdF4Wu8yMbIjQNgk2f0dPI5W9yg8UfiAdTAcMrw6XbA/viewform?usp=dialog" 
+  },
+  { 
+    image: chessLogo, 
+    title: "chess", 
+    description: "Master the 64 squares in this strategic battle of minds.", 
+    link: "https://docs.google.com/forms/d/e/1FAIpQLScLYE1E8NL-0vxqAerutnmLjEUmOpKaHJq-Y-axViVPc8cylQ/viewform?usp=publish-editor" 
+  },
+  { 
+    image: twinTacticsLogo, 
+    title: "twin tactics", 
+    description: "Sync up and win in dual challenges.", 
+    link: "https://docs.google.com/forms/d/e/1FAIpQLSfIGsidDolEdkbgOP7QZxcO34awK-5WJj_U7OrPLCjWFoIUCg/viewform?usp=publish-editor" 
+  },
+  { 
+    image: quizzardLogo, 
+    title: "quizzard", 
+    description: "Test your knowledge in this rapid-fire quiz.", 
+    link: "https://docs.google.com/forms/d/e/1FAIpQLSfLL6YvswrJTjl9_AywrXEjBsxpH5q_HjJfl9ibdlzZogS_Ww/viewform?usp=publish-editor" 
+  }
 ];
-
 const workshops = [
   { 
     image: pmaLogo, 
