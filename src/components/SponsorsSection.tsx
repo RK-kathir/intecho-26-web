@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 // 1. Removed Siemens import
 import indianBankLogo from "@/assets/Indian bank logo.png";
 import indusAutoLogo from "@/assets/Indusauto logo.png";
-import pmaLogo from "@/assets/PMA logo.png";
+import pmaLogo from "@/assets/placka logo.png";
 
 // 2. Removed Siemens from the array
 const sponsors = [
