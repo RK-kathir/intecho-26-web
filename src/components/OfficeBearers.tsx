@@ -10,11 +10,11 @@ import manotheethaImg from "@/assets/manotheetha.jpeg";
 import jointSecImg from "@/assets/joint secretary.jpeg";
 import maadeshImg from "@/assets/maadesh.jpeg";
 import vasanthImg from "@/assets/vasanth.jpeg";
-import vasanthImg from "@/assets/karthikeyan.jpeg";
+import karthiImg from "@/assets/karthikeyan.jpeg";
 
 const teamMembers = [
   { name: "Vishwa", role: "Chairperson", image: vishwaImg },
-  { name: "Karthikeyan", role: "Eventcoordinator", image: vishwaImg },
+  { name: "Karthikeyan", role: "Eventcoordinator", image: karthiImg },
   { name: "Chockalingam ", role: "Vice Chairperson", image: chockuImg },
   { name: "Kalai selvan", role: "General Secretary", image: kalaiImg },
   { name: "Pavithra", role: "Program Secretary", image: pavithraImg },
