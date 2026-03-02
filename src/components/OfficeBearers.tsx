@@ -17,7 +17,7 @@ const teamMembers = [
   { name: "Karthikeyan", role: "Eventcoordinator", image: vishwaImg },
   { name: "Chockalingam ", role: "Vice Chairperson", image: chockuImg },
   { name: "Kalai selvan", role: "General Secretary", image: kalaiImg },
-  { name: "Pavithra", role: "General Secretary", image: pavithraImg },
+  { name: "Pavithra", role: "Program Secretary", image: pavithraImg },
   { name: "Tharun kumar", role: "Joint Secretary", image: jointSecImg },
   { name: "Sanjay Kumar", role: "Joint Treasurer", image: sanjayImg },
   { name: "Praveen", role: "Head of Public Relation", image: praveenImg },
