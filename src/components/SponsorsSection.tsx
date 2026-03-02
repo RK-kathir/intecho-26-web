@@ -8,7 +8,7 @@ import pmaLogo from "@/assets/placka.png";
 const titleSponsor = { name: "IndusAuto Technologies", logo: indusAutoLogo };
 const otherSponsors = [
   { name: "Indian Bank", logo: indianBankLogo },
-  { name: "placka", logo: plackalogo },
+  { name: "placka", logo: placka },
 ];
 
 const SponsorsSection = () => {
