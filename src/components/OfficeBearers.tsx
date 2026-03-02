@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 
-// 1. Import all the exact image files you provided
 import vishwaImg from "@/assets/vishwa.jpeg";
 import kalaiImg from "@/assets/kalai.jpeg";
 import pavithraImg from "@/assets/pavithra.jpeg";
@@ -12,7 +11,6 @@ import jointSecImg from "@/assets/joint secretary.jpeg";
 import maadeshImg from "@/assets/maadesh.png";
 import vasanthImg from "@/assets/vasanth.png";
 
-// 2. The Team Array
 const teamMembers = [
   { name: "Vishwa", role: "Chairperson", image: vishwaImg },
   { name: "Chocku", role: "Vice Chairperson", image: chockuImg },
@@ -26,7 +24,6 @@ const teamMembers = [
   { name: "Vasanth", role: "PG Representative", image: vasanthImg }
 ];
 
-// 3. Duplicate the array so it seamlessly loops forever without a gap!
 const marqueeItems = [...teamMembers, ...teamMembers];
 
 const OfficeBearers = () => {
@@ -49,18 +46,17 @@ const OfficeBearers = () => {
       {/* Infinite Scroll Marquee Container */}
       <div className="relative w-full flex overflow-hidden group">
         
-        {/* Faded edges so the cards "disappear" smoothly into the background */}
+        {/* Faded edges */}
         <div className="absolute top-0 bottom-0 left-0 w-16 md:w-32 bg-gradient-to-r from-[#050505] to-transparent z-10 pointer-events-none" />
         <div className="absolute top-0 bottom-0 right-0 w-16 md:w-32 bg-gradient-to-l from-[#050505] to-transparent z-10 pointer-events-none" />
 
         <motion.div
           className="flex gap-6 px-3"
-          /* Animates from 0% to exactly -50% to create a perfect invisible loop */
           animate={{ x: ["0%", "-50%"] }}
           transition={{
             repeat: Infinity,
             ease: "linear",
-            duration: 30, // Change this number to make it scroll faster or slower!
+            duration: 60, // THE FIX: Increased from 30 to 60 to slow down the scroll
           }}
           style={{ width: "max-content" }}
         >
@@ -74,12 +70,12 @@ const OfficeBearers = () => {
                 {member.name}
               </h3>
               
-              {/* Image Middle */}
-              <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-2 border-[#ff2d2d]/30 mb-6 shadow-inner shrink-0 bg-black/50">
+              {/* Image Middle - THE FIX: Changed from circle to square and centered */}
+              <div className="w-32 h-32 md:w-40 md:h-40 rounded-xl overflow-hidden border-2 border-[#ff2d2d]/30 mb-6 shadow-inner shrink-0 bg-black flex items-center justify-center">
                 <img 
                   src={member.image} 
                   alt={member.name} 
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover object-center"
                 />
               </div>
               
