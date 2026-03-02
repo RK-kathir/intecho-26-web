@@ -2,13 +2,12 @@ import { motion } from "framer-motion";
 
 import indianBankLogo from "@/assets/Indian bank logo.png";
 import indusAutoLogo from "@/assets/Indusauto logo.png";
-import pmaLogo from "@/assets/placka.png";
+import plackaLogo from "@/assets/placka.png";
 
-// 1. Separate the Title Sponsor from the rest
-const titleSponsor = { name: "IndusAuto Technologies", logo: indusAutoLogo };
+const titleSponsor = { name: "IndusAuto Technologies", logo: indusAutoLogo }
 const otherSponsors = [
   { name: "Indian Bank", logo: indianBankLogo },
-  { name: "placka", logo: placka },
+  { name: "Placka", logo: plackaLogo },
 ];
 
 const SponsorsSection = () => {
@@ -45,7 +44,6 @@ const SponsorsSection = () => {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          /* THE HIGHLIGHT: Larger size, red glowing border, and intense drop shadow! */
           className="max-w-3xl mx-auto relative group bg-white/5 border-2 border-[#ff2d2d]/40 rounded-2xl overflow-hidden h-64 md:h-80 flex items-center justify-center hover:border-[#ff2d2d] transition-all shadow-[0_0_30px_rgba(255,45,45,0.15)] hover:shadow-[0_0_50px_rgba(255,45,45,0.3)] duration-500"
         >
           <img 
