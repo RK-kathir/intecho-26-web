@@ -9,7 +9,7 @@ import pmaLogo from "@/assets/placka logo.png";
 const sponsors = [
   { name: "Indian Bank", logo: indianBankLogo },
   { name: "IndusAuto", logo: indusAutoLogo },
-  { name: "PMA", logo: pmaLogo },
+  { name: "placka", logo: pmaLogo },
 ];
 
 const SponsorsSection = () => {
