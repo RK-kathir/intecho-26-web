@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import vishwaImg from "@/assets/vishwa.jpeg";
 import kalaiImg from "@/assets/kalai.jpeg";
 import pavithraImg from "@/assets/pavithra.jpeg";
-import sanjayImg from "@/assets/sanjay kumar.jpeg";
+import sanjayImg from "@/assets/sanjaykumar.jpeg";
 import chockuImg from "@/assets/chocku.jpeg";
 import praveenImg from "@/assets/praveen.jpeg";
 import manotheethaImg from "@/assets/manotheetha.jpeg";
