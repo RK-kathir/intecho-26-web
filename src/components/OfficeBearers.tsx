@@ -13,14 +13,14 @@ import vasanthImg from "@/assets/vasanth.png";
 
 const teamMembers = [
   { name: "Vishwa", role: "Chairperson", image: vishwaImg },
-  { name: "Chocku", role: "Vice Chairperson", image: chockuImg },
-  { name: "Kalai", role: "General Secretary", image: kalaiImg },
+  { name: "Chockalingam ", role: "Vice Chairperson", image: chockuImg },
+  { name: "Kalai selvan", role: "General Secretary", image: kalaiImg },
   { name: "Pavithra", role: "General Secretary", image: pavithraImg },
-  { name: "Joint Secretary", role: "Joint Secretary", image: jointSecImg },
+  { name: "Tharun kumar", role: "Joint Secretary", image: jointSecImg },
   { name: "Sanjay Kumar", role: "Joint Treasurer", image: sanjayImg },
   { name: "Praveen", role: "Head of Public Relation", image: praveenImg },
   { name: "Manotheetha", role: "Head of Report Team", image: manotheethaImg },
-  { name: "Maadesh", role: "Head of Editing Team", image: maadeshImg },
+  { name: "Madesh", role: "Head of Editing Team", image: maadeshImg },
   { name: "Vasanth", role: "PG Representative", image: vasanthImg }
 ];
 
