@@ -8,7 +8,7 @@ import chockuImg from "@/assets/chocku.jpeg";
 import praveenImg from "@/assets/praveen.jpeg";
 import manotheethaImg from "@/assets/manotheetha.jpeg";
 import jointSecImg from "@/assets/joint secretary.jpeg";
-import maadeshImg from "@/assets/maadesh.png";
+import maadeshImg from "@/assets/maadesh.jpeg";
 import vasanthImg from "@/assets/vasanth.png";
 
 const teamMembers = [
