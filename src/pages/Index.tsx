@@ -5,6 +5,7 @@ import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
 import PassesSection from "@/components/PassesSection";
 import CarouselSection from "@/components/CarouselSection";
+import OfficeBearers from "@/components/OfficeBearers"; // <-- NEW IMPORT
 import SponsorsSection from "@/components/SponsorsSection";
 import AboutMIT from "@/components/AboutMIT";
 import ContactSection from "@/components/ContactSection";
@@ -151,6 +152,7 @@ const nonTechEvents = [
     link: "https://docs.google.com/forms/d/e/1FAIpQLSfLL6YvswrJTjl9_AywrXEjBsxpH5q_HjJfl9ibdlzZogS_Ww/viewform?usp=publish-editor" 
   }
 ];
+
 const workshops = [
   { 
     image: pmaLogo, 
@@ -165,6 +167,7 @@ const workshops = [
     link: "https://docs.google.com/forms/d/e/1FAIpQLSeRFgzYUXG_F2hztiRHPivb8wk-BbbRvBHO9YdjPgQn8FUKAw/viewform?usp=publish-editor" 
   },
 ];
+
 const Index = () => {
   const [showIntro, setShowIntro] = useState(true);
   const [isMobile, setIsMobile] = useState(true);
@@ -235,6 +238,11 @@ const Index = () => {
       <CarouselSection id="workshops" title="Workshops" items={workshops} showRegister={true} />
       
       <SectionDivider />
+      
+      {/* --- NEW OFFICE BEARERS SECTION --- */}
+      <OfficeBearers />
+      <SectionDivider />
+
       <SponsorsSection />
       <SectionDivider />
       <AboutMIT />
