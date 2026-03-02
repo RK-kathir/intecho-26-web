@@ -63,7 +63,7 @@ const SponsorsSection = () => {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="text-center mb-6"
         >
-          <h3 className="text-sm md:text-base font-sans tracking-[0.2em] text-zinc-500 uppercase">Co-Sponsors</h3>
+          <h3 className="text-sm md:text-base font-sans tracking-[0.2em] text-zinc-500 uppercase">other sponsers</h3>
         </motion.div>
 
         {/* 2-Column Grid for the remaining 2 sponsors */}
