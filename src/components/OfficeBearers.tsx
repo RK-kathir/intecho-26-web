@@ -2,10 +2,17 @@ import { motion } from "framer-motion";
 
 // You can swap these out with your actual team photos from the assets folder later!
 const teamMembers = [
-  { name: "Student Name", role: "Chairman", image: "https://placehold.co/400x400/1a1a2e/ff2d2d?text=CH" },
-  { name: "Student Name", role: "Vice Chairman", image: "https://placehold.co/400x400/1a1a2e/ff2d2d?text=VC" },
-  { name: "Student Name", role: "Secretary", image: "https://placehold.co/400x400/1a1a2e/ff2d2d?text=SEC" },
-  { name: "Student Name", role: "Treasurer", image: "https://placehold.co/400x400/1a1a2e/ff2d2d?text=TR" },
+  { name: "Student Name", role: "Chairperson", image: "https://placehold.co/400x400/1a1a2e/ff2d2d?text=CH" },
+  { name: "Student Name", role: "General secretary", image: "https://placehold.co/400x400/1a1a2e/ff2d2d?text=VC" },
+  { name: "Student Name", role: "Program Secretary", image: "https://placehold.co/400x400/1a1a2e/ff2d2d?text=SEC" },
+  { name: "Student Name", role: "Joint Treasurer", image: "https://placehold.co/400x400/1a1a2e/ff2d2d?text=TR" },
+  {name: "Student Name", role: "Event coordinator", image: "https://placehold.co/400x400/1a1a2e/ff2d2d?text=TR" },
+  {name: "Student Name", role: "Vice Chairperson", image: "https://placehold.co/400x400/1a1a2e/ff2d2d?text=TR" },
+  {name: "Student Name", role: "Head of Public realation", image: "https://placehold.co/400x400/1a1a2e/ff2d2d?text=TR" },
+  {name: "Student Name", role: "Head of report team", image: "https://placehold.co/400x400/1a1a2e/ff2d2d?text=TR" },
+  { name: "Student Name", role: "Joint secreetary", image: "https://placehold.co/400x400/1a1a2e/ff2d2d?text=TR" },
+  {name: "Student Name", role: "Head of editing team", image: "https://placehold.co/400x400/1a1a2e/ff2d2d?text=TR" },
+  {name: "Student Name", role: "PG represntative", image: "https://placehold.co/400x400/1a1a2e/ff2d2d?text=TR" },
 ];
 
 const OfficeBearers = () => {
