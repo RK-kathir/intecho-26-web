@@ -12,7 +12,7 @@ const teamMembers = [
   {name: "Student Name", role: "Head of report team", image: "https://placehold.co/400x400/1a1a2e/ff2d2d?text=TR" },
   { name: "Student Name", role: "Joint secreetary", image: "https://placehold.co/400x400/1a1a2e/ff2d2d?text=TR" },
   {name: "Student Name", role: "Head of editing team", image: "https://placehold.co/400x400/1a1a2e/ff2d2d?text=TR" },
-  {name: "Student Name", role: "PG represntative", image: "https://placehold.co/400x400/1a1a2e/ff2d2d?text=TR" },
+  {name: "Student Name", role: "PG represntative", image: "https://placehold.co/400x400/1a1a2e/ff2d2d?text=TR" }
 ];
 
 const OfficeBearers = () => {
