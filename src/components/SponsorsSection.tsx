@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 import indianBankLogo from "@/assets/Indian bank logo.png";
 import indusAutoLogo from "@/assets/Indusauto logo.png";
-import plackaLogo from "@/assets/placka.png";
+import plackaLogo from "@/assets/placka.jpg";
 
 const titleSponsor = { name: "IndusAuto Technologies", logo: indusAutoLogo }
 const otherSponsors = [
