@@ -22,8 +22,8 @@ const teamMembers = [
   { name: "Praveen", role: "Head of Public Relation", image: praveenImg },
   { name: "Manotheetha", role: "Head of Report Team", image: manotheethaImg },
   { name: "Tharun kumar", role: "Joint Secretary", image: jointSecImg },
-  { name: "Vasanth", role: "PG Representative", image: vasanthImg }
-  { name: "Madesh", role: "Head of Editing Team", image: maadeshImg },
+  { name: "Vasanth", role: "PG Representative", image: vasanthImg },
+  { name: "Madesh", role: "Head of Editing Team", image: maadeshImg }
 ];
 
 const marqueeItems = [...teamMembers, ...teamMembers];
