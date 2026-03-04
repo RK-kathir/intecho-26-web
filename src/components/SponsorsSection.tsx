@@ -12,7 +12,7 @@ import alumnuslogo from "@/assets/alumnus logo.png";
 
 // 2. Sponsor Data Categorized by Tier
 const titleSponsor = { name: "IndusAuto Technologies", logo: indusAutoLogo };
-const associateSponsor = {{ name: "Placka", logo: plackaLogo } , { name: "Gantner", logo: gantnerlogo } , { name: "Burster", logo: bursterlogo }];
+const associateSponsor = [{ name: "Placka", logo: plackaLogo } , { name: "Gantner", logo: gantnerlogo } , { name: "Burster", logo: bursterlogo }];
 const eventSponsors = [
   { name: "Indian Bank", logo: indianBankLogo },
   { name: "Alumni", logo: alumnuslogo}, // Placeholder for Alumnies
