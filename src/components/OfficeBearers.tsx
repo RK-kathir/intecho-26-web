@@ -13,17 +13,17 @@ import vasanthImg from "@/assets/vasanth.jpeg";
 import karthiImg from "@/assets/karthikeyan.jpeg";
 
 const teamMembers = [
-  { name: "Vishwa", role: "Chairperson", image: vishwaImg },
-  { name: "Karthikeyan", role: "Eventcoordinator", image: karthiImg },
-  { name: "Chockalingam ", role: "Vice Chairperson", image: chockuImg },
+  { name: "Vishwa", role: "Chairman", image: vishwaImg },
   { name: "Kalai selvan", role: "General Secretary", image: kalaiImg },
+  { name: "Karthikeyan", role: "Eventcoordinator", image: karthiImg },
   { name: "Pavithra", role: "Program Secretary", image: pavithraImg },
-  { name: "Tharun kumar", role: "Joint Secretary", image: jointSecImg },
   { name: "Sanjay Kumar", role: "Joint Treasurer", image: sanjayImg },
+  { name: "Chockalingam ", role: "Vice Chairperson", image: chockuImg },
   { name: "Praveen", role: "Head of Public Relation", image: praveenImg },
   { name: "Manotheetha", role: "Head of Report Team", image: manotheethaImg },
-  { name: "Madesh", role: "Head of Editing Team", image: maadeshImg },
+  { name: "Tharun kumar", role: "Joint Secretary", image: jointSecImg },
   { name: "Vasanth", role: "PG Representative", image: vasanthImg }
+  { name: "Madesh", role: "Head of Editing Team", image: maadeshImg },
 ];
 
 const marqueeItems = [...teamMembers, ...teamMembers];
