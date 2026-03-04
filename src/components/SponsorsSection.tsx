@@ -12,11 +12,20 @@ import alumnuslogo from "@/assets/alumnus logo.png";
 
 // 2. Sponsor Data Categorized by Tier
 const titleSponsor = { name: "IndusAuto Technologies", logo: indusAutoLogo };
-const associateSponsor = [{ name: "Placka", logo: plackaLogo } , { name: "Gantner", logo: gantnerlogo } , { name: "Burster", logo: bursterlogo }];
+
+// Now an array of 3 sponsors!
+const associateSponsor = [
+  { name: "Placka", logo: plackaLogo }, 
+  { name: "Gantner", logo: gantnerlogo }, 
+  { name: "Burster", logo: bursterlogo },
+  { name: "PMA", logo: pmalogo }
+];
+
 const eventSponsors = [
   { name: "Indian Bank", logo: indianBankLogo },
-  { name: "Alumni", logo: alumnuslogo}, // Placeholder for Alumnies
+  { name: "Alumni", logo: alumnuslogo },
 ];
+
 const certificateSponsor = { name: "Rajam Digital Prints", logo: rajamsPressLogo };
 
 const SponsorsSection = () => {
@@ -63,7 +72,7 @@ const SponsorsSection = () => {
         </motion.div>
       </div>
 
-      {/* --- 2. ASSOCIATE SPONSOR (Large + Subtle Glow) --- */}
+      {/* --- 2. ASSOCIATE SPONSORS (3-Column Grid) --- */}
       <div className="mb-20">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -72,22 +81,28 @@ const SponsorsSection = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-6"
         >
-          <h3 className="text-lg md:text-xl font-sans tracking-[0.25em] text-zinc-300 uppercase">Associate Sponsor</h3>
+          <h3 className="text-lg md:text-xl font-sans tracking-[0.25em] text-zinc-300 uppercase">Associate Sponsors</h3>
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="max-w-2xl mx-auto relative group bg-white/5 border border-white/20 rounded-2xl overflow-hidden h-56 md:h-64 flex items-center justify-center hover:border-white/50 transition-all shadow-lg duration-500"
-        >
-          <img 
-            src={associateSponsor.logo} 
-            alt={associateSponsor.name} 
-            className="w-full h-full object-contain p-8 md:p-10 group-hover:scale-105 transition-transform duration-700" 
-          />
-        </motion.div>
+        {/* THE FIX: Mapped the array into a 3-column grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          {associateSponsor.map((sponsor, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 + index * 0.1 }}
+              className="relative group bg-white/5 border border-white/20 rounded-2xl overflow-hidden h-48 md:h-56 flex items-center justify-center hover:border-white/50 transition-all shadow-lg duration-500"
+            >
+              <img 
+                src={sponsor.logo} 
+                alt={sponsor.name} 
+                className="w-full h-full object-contain p-8 group-hover:scale-105 transition-transform duration-700" 
+              />
+            </motion.div>
+          ))}
+        </div>
       </div>
 
       {/* --- 3. EVENT SPONSORS (2-Column Grid) --- */}
