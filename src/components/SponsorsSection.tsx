@@ -5,13 +5,17 @@ import indusAutoLogo from "@/assets/Indusauto logo.png";
 import plackaLogo from "@/assets/placka.jpg";
 import indianBankLogo from "@/assets/Indian bank logo.png";
 import rajamsPressLogo from "@/assets/rajams press.png";
+import bursterlogo from "@/assets/Burster logo.png";
+import gantnerlogo from "@/assets/Gantner logo.png";
+import pmalogo from "@/assets/PMA logo.png";
+import alumnuslogo from "@/assets/alumnus logo.png";
 
 // 2. Sponsor Data Categorized by Tier
 const titleSponsor = { name: "IndusAuto Technologies", logo: indusAutoLogo };
-const associateSponsor = { name: "Placka", logo: plackaLogo };
+const associateSponsor = {{ name: "Placka", logo: plackaLogo } , { name: "Gantner", logo: gantnerlogo } , { name: "Burster", logo: bursterlogo }];
 const eventSponsors = [
   { name: "Indian Bank", logo: indianBankLogo },
-  { name: "Alumni", logo: "https://placehold.co/400x200/1a1a2e/ff2d2d?text=Alumni+Sponsor" }, // Placeholder for Alumnies
+  { name: "Alumni", logo: alumnuslogo}, // Placeholder for Alumnies
 ];
 const certificateSponsor = { name: "Rajam Digital Prints", logo: rajamsPressLogo };
 
