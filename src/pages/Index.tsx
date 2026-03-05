@@ -250,8 +250,9 @@ const Index = () => {
       <ScrollToTop />
 
       <footer className="mt-auto py-8 bg-[#111] border-t border-white/10 text-center relative z-10 w-full">
-        <p className="text-xs font-syne tracking-[0.2em] text-white/70 uppercase">
-          Built with <span className="text-[#ff2d2d] font-bold">Kathirvel R</span>
+        {/* Used flex and gap to perfectly align the text and the heart */}
+        <p className="text-xs font-syne tracking-[0.2em] text-white/70 uppercase flex items-center justify-center gap-1.5">
+          Built with <span className="text-[#ff2d2d] text-sm animate-pulse">❤️</span> by <span className="text-[#ff2d2d] font-bold">Kathirvel</span>
         </p>
       </footer>
     </div>
